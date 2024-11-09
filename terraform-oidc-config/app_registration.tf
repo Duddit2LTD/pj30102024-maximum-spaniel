@@ -9,7 +9,7 @@ resource "azuread_application" "github_oidc" {
 
 resource "azuread_service_principal" "github_oidc" {
   for_each       = var.use_managed_identity ? {} : { for env in var.environments : env => env }
-  application_id = azuread_application.github_oidc[each.value].application_id
+  client_id = azuread_application.github_oidc[each.value].application_id
 }
 
 resource "azuread_application_federated_identity_credential" "github_oidc" {
