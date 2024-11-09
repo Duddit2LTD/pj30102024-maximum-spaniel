@@ -3,7 +3,7 @@ data "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network" "example" {
-  name                = "example-network"
+  name                = "example-network-00188776"
   address_space       = ["10.0.0.0/16"]
   location            = data.azurerm_resource_group.example.location
   resource_group_name = data.azurerm_resource_group.example.name
@@ -34,7 +34,7 @@ resource "tls_private_key" "main" {
 }
 
 resource "azurerm_linux_virtual_machine" "example" {
-  name                = "example-machine"
+  name                = "example-machine00088"
   resource_group_name = data.azurerm_resource_group.example.name
   location            = data.azurerm_resource_group.example.location
   size                = "Standard_F2"
